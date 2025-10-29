@@ -9,7 +9,8 @@
 
 # Definición de anagrama
 
-# Dos cadenas son anagramas si, tras normalizarlas, contienen exactamente las mismas 
+# Dos cadenas son anagramas si, tras normalizarlas, contienen exactamente 
+# las mismas 
 # letras con la misma frecuencia.
 
 # Requisitos
@@ -33,7 +34,29 @@ def son_anagramas(cadenaUno:str,cadenaDos:str)->bool:
             temp_cadenaDos.append(caracter)
     cadenaDos="".join(temp_cadenaDos)
     
+    if len(cadenaUno)!=len(cadenaUno):
+        return False
     
-soy_un_buleano=son_anagramas("Amor               ","              Roma")
+    #Aqui cuento los caracteres de la cadena 1 
+    conteo={}
+    for caracter in cadenaUno:
+        conteo[caracter]=conteo.get(caracter,0)+1
     
+    for caracter in cadenaDos:
+        if caracter not in conteo: 
+            return False
+        conteo[caracter]-=1
+        if conteo[caracter]<0:
+            return False
+    #Recorrido final
+    for caracter in conteo.values():
+        if caracter!=0:
+            return False
+    return True
+        
+respuestaAnagrama=son_anagramas("Aaaaaamor","RomAaaaaa")
+    
+if respuestaAnagrama:
+    print ("Son anagramas")
+
     
