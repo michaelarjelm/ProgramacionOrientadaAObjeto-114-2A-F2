@@ -8,13 +8,14 @@
 from clases.documento import Documento
 class Comprobante(Documento):
     def __init__(self, id,fecha, monto):
-        super.__init__(id,fecha)
+        super().__init__(id,fecha)
         self.__monto=monto
     
     @property
     def monto(self):
         return self.__monto
     
+    @monto.setter
     def monto(self, monto):
         if monto<0:
             raise Exception("El monto debe ser mayor a 0")
