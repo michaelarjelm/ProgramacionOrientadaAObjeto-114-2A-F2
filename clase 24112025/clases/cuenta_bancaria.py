@@ -21,10 +21,13 @@ class CuentaBancaria:
     
     def retirar(self, monto):
         if monto <0:
-            raise ValueError("El monto no puede ser inferior a un peso")
+            raise ValueError("  monto no puede ser inferior a un peso")
         if monto>self.__saldo:
             raise ValueError("Tu saldo es insuficiente para realizar esta operación")
         self.__saldo-=monto
         
     def mostrar_saldo(self):
         return self.__saldo
+    
+    def establecer_saldo(self,saldo):
+        self.__saldo=saldo

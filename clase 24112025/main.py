@@ -1,7 +1,12 @@
 from clases.cuenta_ahorro import CuentaAhorro
+from clases.cuenta_corriente import CuentaCorriente
 
 
 
-cuentaAhorro=CuentaAhorro(5000)
+cuentaCorriente=CuentaCorriente(5000)
 
-print (cuentaAhorro.consultar_saldo())
+lista = [CuentaCorriente(5000),CuentaAhorro(3000)]
+
+
+
+cuentaCorriente.retirar(5600)
